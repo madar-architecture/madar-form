@@ -71,6 +71,12 @@
   .center .fine{margin-top:14px;font-size:13px}
   .sig{margin-top:auto;padding-top:28px;font-size:13px;color:var(--gold-soft);text-align:center}
 
+  .contact{display:grid;gap:10px;width:100%;max-width:320px;margin-top:30px}
+  .contact a{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:17px;font-weight:600;border-radius:999px;padding:14px 20px}
+  .contact .wa{background:var(--gold);color:var(--bg-deep)}
+  .contact .call{border:1.5px solid var(--gold-soft);color:var(--gold)}
+  .contact svg{width:20px;height:20px;flex:none}
+  .other{margin-top:4px}
   .screen{animation:in .25s ease}
   @keyframes in{from{opacity:0;transform:translateY(6px)}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -95,17 +101,43 @@ const LOGO = 'data:image/webp;base64,UklGRhZGAABXRUJQVlA4WAoAAAAQAAAAiwEAkwEAQUx
 const MARK = 'data:image/webp;base64,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';
 
 /* ====== الأسئلة — الاختيارات مطابقة لتاب Lists في شيت CRM ====== */
+const WA_NUMBER = '201099600188';
+const CALL_NUMBER = '+201099600188';
+const GOVS = ['القاهرة','الجيزة','القليوبية','أسيوط'];
+const DISTRICTS = {
+  'القاهرة':['التجمع الخامس','التجمع الأول','العاصمة الإدارية','مدينة نصر','مصر الجديدة','المعادي','الشروق','مدينتي','الرحاب','المقطم'],
+  'الجيزة':['6 أكتوبر','الشيخ زايد','حدائق أكتوبر','المهندسين','الدقي','الهرم','فيصل','حدائق الأهرام'],
+  'القليوبية':['العبور','شبرا الخيمة','بنها','قليوب','الخانكة'],
+  'أسيوط':['أسيوط الجديدة','مدينة أسيوط','منفلوط','ديروط','أبنوب']
+};
+const RATE_LOW = 4500, RATE_HIGH = 8000;
+const TIERS = ['أقل من 4500/م','4500 - 8000/م','أكثر من 8000/م'];
+const otherGov = d => !!d['governorate__other'];
+
+function money(v){
+  if (v >= 1e6){ const m = Math.round(v / 1e5) / 10; return (m % 1 ? m.toFixed(1) : m) + ' مليون'; }
+  return Math.round(v / 1000) + ' ألف';
+}
+function budgetOptions(d){
+  const a = +d.area || 0; const lo = money(a * RATE_LOW), hi = money(a * RATE_HIGH);
+  return ['أقل من ' + lo, 'من ' + lo + ' لـ ' + hi, 'أكتر من ' + hi];
+}
+
 const STEPS = [
   {id:'name', type:'text', q:'اسم حضرتك إيه؟', ph:'الاسم', ac:'name'},
   {id:'phone', type:'tel', q:'رقم الموبايل أو الواتساب', help:'فريقنا هيتواصل معاك عليه.', ph:'01xxxxxxxxx',
     norm:normPhone, validate:v => /^01[0125]\d{8}$/.test(v) || 'اكتب رقم موبايل مصري من 11 رقم يبدأ بـ 01'},
   {id:'unitType', type:'choice', q:'نوع الوحدة إيه؟', options:['شقة','فيلا / تاون هاوس','دوبلكس / روف','محل / مطعم','مكتب / عيادة','أخرى']},
-  {id:'location', type:'choice', q:'الوحدة فين؟', options:['التجمع','العاصمة الإدارية','الشروق / العبور / مدينتي','مدينة نصر / مصر الجديدة','الجيزة','أكتوبر / زايد','الإسكندرية / الساحل','محافظة أخرى']},
+  {id:'governorate', type:'choice', q:'الوحدة في محافظة إيه؟', options:GOVS, other:'محافظة أخرى', otherPh:'اكتب اسم المحافظة'},
+  {id:'district', type:'choice', q:'في منطقة إيه؟', options:d => DISTRICTS[d.governorate] || [], other:'منطقة أخرى', when:d => !otherGov(d)},
+  {id:'districtText', type:'text', q:'المدينة أو المنطقة', ph:'مثال: المنصورة', when:otherGov},
   {id:'unitStatus', type:'choice', q:'الوحدة حالتها إيه دلوقتي؟', options:['على الطوب','نص تشطيب','متشطبة ومحتاجة تجديد','لسه ما استلمتش']},
-  {id:'area', type:'choice', q:'المساحة تقريبًا كام؟', options:['أقل من 100 م','100 - 200 م','200 - 300 م','أكثر من 300 م']},
-  {id:'budget', type:'choice', q:'الميزانية المتوقعة للتشطيب؟', options:['أقل من 500 ألف','أقل من مليون','أكثر من مليون']},
+  {id:'area', type:'number', q:'مساحة الوحدة كام متر؟', help:'رقم تقريبي كفاية.', ph:'150',
+    norm:normDigits, validate:v => (/^\d+$/.test(v) && +v >= 30 && +v <= 3000) || 'اكتب رقم بين 30 و 3000'},
+  {id:'budget', type:'choice', q:'الميزانية المتوقعة للتشطيب؟', help:'محسوبة على مساحة وحدتك.', options:budgetOptions},
   {id:'contactTime', type:'choice', q:'أنسب وقت نكلمك فيه؟', options:['الصبح','بعد الضهر','بالليل']},
-  {id:'notes', type:'textarea', q:'فيه تفاصيل تحب تقولها؟', help:'مثال: اسم الكمبوند، محتاج تصميم بس ولا تصميم وتنفيذ.', optional:true}
+  {id:'address', type:'text', q:'العنوان بالتفصيل', help:'الكمبوند أو الشارع ورقم العمارة.', ph:'مثال: كمبوند ...، عمارة ...'},
+  {id:'notes', type:'textarea', q:'فيه تفاصيل تانية تحب تقولها؟', help:'مثال: محتاج تصميم بس ولا تصميم وتنفيذ.', optional:true}
 ];
 
 /* ====== المنطق ====== */
@@ -210,27 +242,64 @@ function buildChoice(s, body, next, last){
   body.className = 'options';
   body.setAttribute('role', 'group');
   body.setAttribute('aria-labelledby', 'q');
+  const opts = text(s, 'options');
+  const otherKey = s.id + '__other';
+  if (data[s.id] && !data[otherKey] && !opts.includes(data[s.id])) delete data[s.id];
+  const otherOn = !!data[otherKey];
   const press = target => body.querySelectorAll('.opt').forEach(b => b.setAttribute('aria-pressed', b === target));
-  s.options.forEach(o => {
+  const btn = (label, pressed, onPick) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'opt';
-    b.setAttribute('aria-pressed', data[s.id] === o);
+    b.setAttribute('aria-pressed', pressed);
     b.innerHTML = '<span class="mark"></span><span></span>';
-    b.lastChild.textContent = o;
-    b.onclick = () => {
-      if (busy) return;
-      data[s.id] = o; setErr(''); press(b);
-      if (!nextId(s.id)){ next.hidden = false; next.textContent = 'ابعت الطلب'; return; }
-      busy = true; setTimeout(forward, 220);
-    };
+    b.lastChild.textContent = label;
+    b.onclick = onPick;
     body.appendChild(b);
+    return b;
+  };
+  let otherWrap = null, inp = null;
+  opts.forEach(o => {
+    const b = btn(o, !otherOn && data[s.id] === o, () => {
+      if (busy) return;
+      data[s.id] = o; delete data[otherKey]; setErr(''); press(b);
+      if (otherWrap) otherWrap.hidden = true;
+      if (!nextId(s.id)){ next.hidden = false; next.textContent = 'ابعت الطلب'; return; }
+      busy = true; setTimeout(() => { if (commit(s)) forward(); }, 220);
+    });
   });
-  next.hidden = !(last && data[s.id]);
+  if (s.other){
+    const ob = btn(s.other, otherOn, () => {
+      if (!data[otherKey]){ data[otherKey] = true; data[s.id] = ''; inp.value = ''; }
+      press(ob); otherWrap.hidden = false; next.hidden = false;
+      next.textContent = nextId(s.id) ? 'التالي' : 'ابعت الطلب';
+      inp.focus();
+    });
+    otherWrap = document.createElement('div');
+    otherWrap.className = 'other'; otherWrap.hidden = !otherOn;
+    inp = document.createElement('input');
+    inp.type = 'text'; inp.maxLength = 60; inp.placeholder = s.otherPh || 'اكتب هنا';
+    inp.setAttribute('aria-label', s.other);
+    inp.value = otherOn ? (data[s.id] || '') : '';
+    inp.addEventListener('input', () => { data[s.id] = inp.value; setErr(''); });
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); next.click(); } });
+    otherWrap.appendChild(inp);
+    body.appendChild(otherWrap);
+  }
+  next.hidden = !(otherOn || (last && data[s.id]));
 }
 
 function commit(s){
+  const ok = commitStep(s);
+  if (ok && nextId(s.id)) sync(false);
+  return ok;
+}
+function commitStep(s){
   if (s.type === 'choice'){
-    if (!data[s.id]) return setErr('اختار إجابة');
+    if (data[s.id + '__other']){
+      const v = (data[s.id] || '').trim();
+      if (!v) return setErr('اكتب إجابتك');
+      data[s.id] = v;
+    } else if (!data[s.id]) return setErr('اختار إجابة');
     return true;
   }
   const el = document.querySelector('#body input, #body textarea');
@@ -246,36 +315,58 @@ function commit(s){
 }
 function setErr(m){ document.getElementById('err').textContent = m; return false; }
 
+/* ====== الإرسال: بيتحفظ جزئيًا أول ما الرقم يتكتب، ويتحدّث مع كل خطوة ====== */
+const SID = (self.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
+let sent = false;
+function buildPayload(final){
+  const p = {sid:SID, final:!!final, name:data.name, phone:data.phone, unitType:data.unitType,
+    unitStatus:data.unitStatus, area:data.area, contactTime:data.contactTime, address:data.address, notes:data.notes};
+  if (otherGov(data)){ p.governorate = 'محافظة أخرى'; p.district = [data.governorate, data.districtText].filter(Boolean).join(' - '); }
+  else { p.governorate = data.governorate; p.district = data.district; }
+  if (data.budget){ const i = budgetOptions(data).indexOf(data.budget); if (i > -1){ p.budget = TIERS[i]; p.budgetText = data.budget; } }
+  if (SRC) p.src = SRC;
+  Object.keys(p).forEach(k => (p[k] === undefined || p[k] === '') && delete p[k]);
+  return p;
+}
+function ready(){ return data.name && /^01[0125]\d{8}$/.test(data.phone || '') && ENDPOINT && !ENDPOINT.startsWith('__'); }
+function post(final){
+  return fetch(ENDPOINT, {method:'POST', keepalive:true, headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(buildPayload(final))});
+}
+function sync(final){ if (!ready() || sent) return; post(final).catch(() => {}); }
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden' && ready() && !sent){
+    try { navigator.sendBeacon(ENDPOINT, new Blob([JSON.stringify(buildPayload(false))], {type:'text/plain;charset=utf-8'})); } catch(e){}
+  }
+});
+
 function submit(){
-  const payload = {};
-  STEPS.filter(shown).forEach(s => { if (data[s.id]) payload[s.id] = data[s.id]; });
-  if (SRC) payload.src = SRC;
   const next = document.getElementById('next');
   next.hidden = false; next.disabled = true; next.textContent = 'بيتبعت...';
   setErr('');
-  const fail = (e) => {
+  const fail = () => {
     next.disabled = false; next.textContent = 'جرب تاني';
     next.onclick = submit;
     setErr('الطلب متبعتش. اتأكد من النت وجرب تاني.');
   };
-  if (!ENDPOINT || ENDPOINT.startsWith('__')){ setTimeout(() => thanks(), 600); return; } // وضع المعاينة
-  fetch(ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(payload)
-  })
-    .then(r => r.json())
-    .then(r => r.ok ? thanks() : fail(r))
-    .catch(fail);
+  if (!ENDPOINT || ENDPOINT.startsWith('__')){ setTimeout(thanks, 600); return; } // وضع المعاينة
+  post(true).then(r => r.json()).then(r => { if (r.ok){ sent = true; thanks(); } else fail(); }).catch(fail);
 }
+
+const WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>';
+const CALL_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.2 1z"/></svg>';
 
 function thanks(){
   hdr.hidden = true;
+  const msg = encodeURIComponent('أهلاً، أنا ' + (data.name || '') + ' وسجلت بيانات وحدتي في فورم مدار المعمار.');
   view.innerHTML = `
     <section class="center screen">
       <img src="${LOGO}" alt="">
       <h1>وصلنا طلبك</h1>
-      <p>شكرًا لثقتك. فريق مدار المعمار هيكلمك في الوقت اللي اخترته.</p>
+      <p>شكرًا لثقتك. فريق مدار المعمار هيكلمك في الوقت اللي اخترته. ولو حابب تكلمنا دلوقتي:</p>
+      <div class="contact">
+        <a class="wa" href="https://wa.me/${WA_NUMBER}?text=${msg}" target="_blank" rel="noopener">${WA_ICON}<span>كلمنا واتساب</span></a>
+        <a class="call" href="tel:${CALL_NUMBER}">${CALL_ICON}<span>اتصل بينا دلوقتي</span></a>
+      </div>
     </section>
     <p class="sig">مدار المعمار — Madar Architecture</p>`;
 }
